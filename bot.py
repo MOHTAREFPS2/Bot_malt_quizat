@@ -2,12 +2,18 @@ import logging
 import re
 import asyncio
 import html
+import os
+from dotenv import load_dotenv
 from telegram import Update, Poll
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
 # ==========================================
-# ⚠️ ضع التوكن الخاص بك هنا
-TOKEN = "8507142363:AAGSBcles2E_MerbjHeMP2lX1SaUIbfrEcM"
+load_dotenv()  # يقرأ ملف .env
+TOKEN = os.getenv("MY_BOT_TOKEN") # يجلب التوكن المخفي
+
+if not TOKEN:
+    print("❌ خطأ: لم يتم العثور على التوكن! تأكد من ملف .env")
+    exit()
 
 # ⚠️ اسم المستخدم المسموح له فقط (بدون @)
 ALLOWED_USERNAME = "mohtaref_p"
