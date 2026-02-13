@@ -34,8 +34,8 @@ async def check_auth(update: Update):
         return False
     
     rejection_msg = (
-        "⛔ <b>عذراً دكتور</b>\n"
-        f"المستخدم المصرح له فقط هو @{ALLOWED_USERNAME}"
+        "⛔ <b>عذراً دكتور هذا البوت للإستخدام الخاص فقط</b>\n"
+        f" هو من يمكنه استخدامه@{ALLOWED_USERNAME}فقط المطور"
     )
     await update.message.reply_html(rejection_msg)
     ignored_users.add(user.id)
